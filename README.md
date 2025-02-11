@@ -18,3 +18,5 @@ Inicialmente é definido a frequência do PWM para aproximadamente 50hz - perío
 - 500µs (Ajustando a flange (braço) do servomotor para a posição de, aproximadamente, 0 graus)
 
 Por fim uma rotina entra em execução, fazendo a movimentação periódica do braço do servomotor entre os ângulos de 0 e 180 graus.
+
+Link do vídeo de apresentação do projeto: https://youtu.be/-WLf0dEpGBQ
