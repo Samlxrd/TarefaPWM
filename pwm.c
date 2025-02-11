@@ -9,6 +9,7 @@ const float PWM_DIVISER = 250.0; // divisor do clock para o PWM
 // Protótipo das funções
 void pwm_setup();
 void set_pwm_dc(uint16_t active_cycle);
+void flange_movement();
 
 int main()
 {
@@ -25,7 +26,7 @@ int main()
     sleep_ms(5000);
 
     while (true) {
-        
+        flange_movement();
     }
 }
 
@@ -43,4 +44,15 @@ void pwm_setup()
 void set_pwm_dc(uint16_t active_cycle) {
     uint16_t duty_cycle = (active_cycle * WRAP_PERIOD) / 20000;
     pwm_set_gpio_level(PWM_SERVO, duty_cycle);
+}
+
+void flange_movement() {
+    for (uint16_t active_cycle = 500; active_cycle <= 2400; active_cycle += 5) {
+        set_pwm_dc(active_cycle);
+        sleep_ms(10); 
+    }
+    for (uint16_t active_cycle = 2400; active_cycle >= 500; active_cycle -= 5) {
+        set_pwm_dc(active_cycle);
+        sleep_ms(10);
+    }
 }
